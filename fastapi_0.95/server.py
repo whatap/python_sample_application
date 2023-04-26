@@ -5,10 +5,20 @@ from starlette.responses import HTMLResponse
 import uvicorn
 import requests
 
-logger.add('whatap_sink.log', level='DEBUG', format="<level>{level: <8}</level> <green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green>  -- {{ \"@txid\" : \"{txid}\" }} -- <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>")
+try:
+
+    import whatap.trace.mod.logging as whatap_logging
+    if whatap_logging.loguru_injection_processed:
+        # whatap 모니터링 사용하는 경우
+        logger.add('whatap_sink.log', level='DEBUG', format="<level>{level: <8}</level> <green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green>  -- {{ \"@txid\" : \"{txid}\" }} -- <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>")
+    else:
+        # whatap 모니터링 사용, loguru injection (x)
+        logger.add('app.log', level='DEBUG', format="<level>{level: <8}</level> <green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>")
+except:
+    # whatap 모니터링 사용하지 않는 경우
+    logger.add('app.log', level='DEBUG', format="<level>{level: <8}</level> <green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>")
 
 app = FastAPI()
-
 @app.get("/health_check")
 async def example():
     logger.info("whatap_loguru_1.3.4:/health_check")
