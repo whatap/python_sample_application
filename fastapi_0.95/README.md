@@ -2,8 +2,8 @@
 - 환경
 
   python3.10.6\
-  fastapi0.95.1
-
+  fastapi0.95.1\
+  gunicorn20.1
 
 - 의존성 패키지 설치
 
