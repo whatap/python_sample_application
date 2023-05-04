@@ -39,5 +39,15 @@ async def example():
     res = requests.get(url="https://www.naver.com")
     return HTMLResponse(status_code=res.status_code)
 
+@app.get("/sync_example", response_class=HTMLResponse)
+async def sync_example():
+    logger.info("whatap_loguru_1.3.4:/sync_example")
+    start_time = datetime.now()
+    while True:
+        if datetime.now() - start_time > timedelta(seconds=1):
+            break
+    res = requests.get(url="https://www.naver.com")
+    return HTMLResponse(status_code=res.status_code)
+
 if __name__ == "__main__":
     uvicorn.run(app="server:app", host="0.0.0.0", port=9000, reload=True)
