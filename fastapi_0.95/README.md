@@ -23,16 +23,9 @@
 
 - 트랜젝션 로그 설정
 
-  $export LOGFILES="$PWD/whatap_sink.log"
-
-  $echo "logsink_enabled=true" >> whatap.conf
-
-  $echo "logsink_trace_enabled=true" >> whatap.conf
-
-  $echo "logsink.files=$LOGFILES" >> whatap.conf
-
-  (*LOGFILES 은 logger 에서 설정한 파일 경로*)
-
-
+  $echo "trace_logging_enabled=true" >> whatap.conf
+- 
+  $echo "trace_loguru_enabled=true" >> whatap.conf
+  
 - 에이전트 실행\
   whatap-start-agent uvicorn server:app --host 0.0.0.0 --port 9000
