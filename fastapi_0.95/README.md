@@ -24,7 +24,7 @@
 - 트랜젝션 로그 설정
 
   $echo "trace_logging_enabled=true" >> whatap.conf
-- 
+
   $echo "trace_loguru_enabled=true" >> whatap.conf
   
 - 에이전트 실행\
