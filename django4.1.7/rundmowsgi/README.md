@@ -4,6 +4,9 @@
   django 4.1.7\
   modwsgi 4.9.4
 
+## setting
+- vi {project_dir}/python_sample_application/django4.1.7/rundmowsgi/entrypoint.sh -> 라이센스 키 변경
+
 ## install
 
 - 빌드 : sudo docker build -t whatap/whatap_modwsgi:0.1.0 .

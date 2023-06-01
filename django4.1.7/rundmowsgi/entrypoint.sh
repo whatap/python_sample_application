@@ -6,7 +6,7 @@ chmod -R 777 $WHATAP_HOME
 ####config
 whatap-setting-config \
 --host 15.165.146.117 \
---license x40v722l501va-x7kiik1ersmi8l-x2eo4s4dbh8mr8 \
+--license {license-key} \
 --app_name whatap_black_olive \
 --app_process_name apache2
 
