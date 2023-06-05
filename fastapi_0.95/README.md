@@ -29,3 +29,9 @@
   
 - 에이전트 실행\
   whatap-start-agent uvicorn server:app --host 0.0.0.0 --port 9000
+
+- Docker
+  - 빌드 : sudo docker build -t whatap/whatap_fastapi:0.1.0 .
+  - 컨테이너 띄우기 : sudo docker run --name whatap_fastapi -d -p 9000:9000 whatap/whatap_fastapi:0.1.0
+  - 스크립트 실행 : sudo docker exec -it {container_id} /bin/bash
+  - 로그 : sudo docker logs --tail=50 {container_id}
