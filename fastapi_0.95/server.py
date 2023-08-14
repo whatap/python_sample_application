@@ -54,6 +54,13 @@ def sync_memory(test: str = Depends(log_test)):
         test_list.append(i)
     return HTMLResponse(status_code=200)
 
+@app.get("/use_memory")
+def use_memory():
+    test_list = []
+    for i in range(0, 10000000):
+        test_list.append(i)
+    return HTMLResponse(status_code=200)
+
 @app.get("/async_exception_example", response_class=HTMLResponse)
 async def async_exception_example(test: str = Depends(log_test)):
     logger.info(f"whatap_loguru_1.3.4:/async_exception_example {test}")
@@ -63,6 +70,7 @@ async def async_exception_example(test: str = Depends(log_test)):
             break
     requests.get(url="https://www.naver.com")
     raise HTTPException(status_code=400)
+
 
 if __name__ == "__main__":
     uvicorn.run(app="server:app", host="0.0.0.0", port=9000, reload=True)

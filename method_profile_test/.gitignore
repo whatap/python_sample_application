@@ -3,12 +3,6 @@ whatap.conf
 whatap_home
 whatap_python.pid
 logs
-run
 paramkey.txt
 *.log
 __pycache__/
-venv
-config
-src
-*.yaml
-entrypoint.sh
