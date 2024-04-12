@@ -10,8 +10,6 @@ from sqlalchemy.orm import relationship, backref, sessionmaker, declarative_base
 from handlers.db_mysql_sqlAlchemy import WhatapMySqlAlchemy
 from whatap import method_profiling
 
-
-
 @method_profiling
 def test_method_profiling():
     requests.get(url="https://www.naver.com")
